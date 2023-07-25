@@ -5,6 +5,6 @@
 #include <stdarg.h>
 
 int _putchar(char c);
-int string_handler(char *str);
+int handle_string(char *str);
 
 #endif /* MAIN_H */

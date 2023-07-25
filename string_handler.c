@@ -2,13 +2,13 @@
 #include "main.h"
 
 /**
- * string_handler - handles string printing
+ * handle_string - handles string printing
  * @str: string to print
  *
  * Return: lenght of string argument
  */
 
-int string_handler(char *str)
+int handle_string(char *str)
 {
 	int i = 0;
 
