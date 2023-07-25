@@ -22,5 +22,7 @@ typedef struct spec_printer
 int _printf(const char *format, ...);
 int _putchar(char c);
 int handle_string(va_list str_arg);
+int handle_number(int n);
+int print_char(va_list c);
 
 #endif /* MAIN_H */
