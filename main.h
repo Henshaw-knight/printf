@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /**
  * struct spec_printer - Struct for formatting specifiers with the use
@@ -19,6 +21,6 @@ typedef struct spec_printer
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int handle_string(char *str);
+int handle_string(va_list str_arg);
 
 #endif /* MAIN_H */
