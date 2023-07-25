@@ -5,7 +5,7 @@
  * handle_string - handles string printing
  * @str: string to print
  *
- * Return: lenght of string argument
+ * Return: length of string argument
  */
 
 int handle_string(char *str)
