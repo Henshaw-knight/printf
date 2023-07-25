@@ -3,7 +3,7 @@
 
 /**
  * handle_number - handle number printing
- * n: number to print
+ * @n: number to print
  *
  * Return: int length of integer
  */
