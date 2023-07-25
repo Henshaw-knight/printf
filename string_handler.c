@@ -3,14 +3,15 @@
 
 /**
  * handle_string - handles string printing
- * @str: string to print
+ * @str_arg: string argument from which string is printed
  *
  * Return: length of string argument
  */
 
-int handle_string(char *str)
+int handle_string(va_list str_arg)
 {
 	int i = 0;
+	char *str = va_arg(str_arg, char *);
 
 	if (str == NULL)
 	{
