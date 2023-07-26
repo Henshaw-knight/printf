@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	s_print specs[] = {{"c", print_char}, {"s", handle_string}, {NULL, NULL}};
 
 	va_start(arguments, format);
-	if (format == NULL || !format[0])
+	if (format == NULL || !format[0] || (format[i] == '%' && !format[i + 1]))
 		return (-1);
 	while (format[i])
 	{
