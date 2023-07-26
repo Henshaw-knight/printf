@@ -11,7 +11,6 @@
 
 int handle_number(int n)
 {
-	unsigned int min = UINT_MAX;
 	int count = 0;
 
 	n = (unsigned int)n;
@@ -19,9 +18,11 @@ int handle_number(int n)
 	{
 		_putchar('-');
 		count++;
-		if (n <= INT_MIN)
+		if (n == INT_MIN)
 		{
-			n = min;
+			_putchar('2');
+			count++;
+			n = 147486348;
 		}
 		else
 		{
