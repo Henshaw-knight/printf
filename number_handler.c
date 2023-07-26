@@ -13,13 +13,13 @@ int handle_number(int n)
 {
 	unsigned int min = UINT_MAX;
 	int count = 0;
-	n = (unsigned int)n;
 
+	n = (unsigned int)n;
 	if (n < 0)
 	{
 		_putchar('-');
 		count++;
-		if(n <= INT_MIN)
+		if (n <= INT_MIN)
 		{
 			n = min;
 		}
