@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 	va_start(arguments, format);
 	if (format == NULL || !format[0] || (format[i] == '%' && !format[i + 1]))
 		return (-1);
+	if (format[0] == '%' && format[i] == ' ' && !format[2])
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -26,8 +28,7 @@ int _printf(const char *format, ...)
 				{
 					ret_value = specs[struct_index].f(arguments);
 					count += ret_value;
-				}
-				struct_index++;
+				} struct_index++;
 			}
 			if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
@@ -36,8 +37,7 @@ int _printf(const char *format, ...)
 			}
 			if (format[i + 1] == '%')
 			{
-				_putchar('%');
-				count++;
+				_putchar('%'), count++;
 			}
 			i = i + 2, struct_index = 0;
 		}
