@@ -43,12 +43,6 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				count++;
 			}
-			else
-			{
-				_putchar('%');
-				_putchar(format[i + 1]);
-				count += 2;
-			}
 			i = i + 2;
 		}
 		else
