@@ -38,18 +38,13 @@ int _printf(const char *format, ...)
 				n = va_arg(arguments, int);
 				count += handle_number(n);
 			}
-			else if (format[i + 1] == '%')
+			if (format[i + 1] == '%')
 			{
 				_putchar('%');
 				count++;
 			}
-			else
-			{
-				_putchar('%');
-				_putchar(format[i + 1]);
-				count += 2;
-			}
 			i = i + 2;
+			struct_index = 0;
 		}
 		else
 		{
