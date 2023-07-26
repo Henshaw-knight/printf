@@ -11,11 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list arguments;
 	int count = 0, struct_index = 0, ret_value = 0, i = 0, n;
-	s_print specs[] = {
-		{"c", print_char},
-		{"s", handle_string},
-		{NULL, NULL}
-	};
+	s_print specs[] = {{"c", print_char}, {"s", handle_string}, {NULL, NULL}};
 
 	va_start(arguments, format);
 	if (format == NULL || !format[0])
@@ -43,14 +39,12 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				count++;
 			}
-			i = i + 2;
-			struct_index = 0;
+			i = i + 2, struct_index = 0;
 		}
 		else
 		{
 			_putchar(format[i]);
-			i++;
-			count++;
+			i++, count++;
 		}
 	}
 	va_end(arguments);
