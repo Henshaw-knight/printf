@@ -11,12 +11,20 @@
 int handle_number(int n)
 {
 	int count = 0;
+	unsigned int min = INT_MAX + 1;
 
 	if (n < 0)
 	{
 		_putchar('-');
 		count++;
-		n *= -1;
+		if (n <= INT_MIN)
+		{
+			n = min;
+		}
+		else
+		{
+			n *= -1;
+		}
 	}
 	if (n >= 10)
 	{
@@ -25,6 +33,8 @@ int handle_number(int n)
 	}
 	if (n < 10)
 	{
+		if ((n + '0') == -1)
+			return (-1);
 		_putchar(n + '0');
 		count++;
 	}
