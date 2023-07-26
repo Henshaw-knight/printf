@@ -1,3 +1,4 @@
+#include <limits.h>
 #include "main.h"
 #include <stdio.h>
 
@@ -10,14 +11,15 @@
 
 int handle_number(int n)
 {
+	unsigned int min = UINT_MAX;
 	int count = 0;
-	unsigned int min = INT_MAX + 1;
+	n = (unsigned int)n;
 
 	if (n < 0)
 	{
 		_putchar('-');
 		count++;
-		if (n <= INT_MIN)
+		if(n <= INT_MIN)
 		{
 			n = min;
 		}
