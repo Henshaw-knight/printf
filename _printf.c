@@ -11,15 +11,13 @@ int _printf(const char *format, ...)
 {
 	va_list arguments;
 	int count = 0, struct_index = 0, ret_value = 0, i = 0, n;
-	s_print specs[] = {
-		{"c", print_char},
-		{"s", handle_string},
-		{NULL, NULL}
-	};
+	s_print specs[] = {{"c", print_char}, {"s", handle_string}, {NULL, NULL}};
 
 	va_start(arguments, format);
-	if (format == NULL || !format[0])
+	if (format == NULL || (format[i] == '%' && !format[i + 1]))
 		return (-1);
+	if (!format[0])
+		return (0);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -30,32 +28,23 @@ int _printf(const char *format, ...)
 				{
 					ret_value = specs[struct_index].f(arguments);
 					count += ret_value;
-				}
-				struct_index++;
+				} struct_index++;
 			}
 			if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				n = va_arg(arguments, int);
 				count += handle_number(n);
 			}
-			else if (format[i + 1] == '%')
+			if (format[i + 1] == '%')
 			{
-				_putchar('%');
-				count++;
+				_putchar('%'), count++;
 			}
-			else
-			{
-				_putchar('%');
-				_putchar(format[i + 1]);
-				count += 2;
-			}
-			i = i + 2;
+			i = i + 2, struct_index = 0;
 		}
 		else
 		{
 			_putchar(format[i]);
-			i++;
-			count++;
+			i++, count++;
 		}
 	}
 	va_end(arguments);
